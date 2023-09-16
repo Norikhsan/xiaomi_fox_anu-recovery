@@ -43,11 +43,9 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 		# Version / Maintainer infos
 		export OF_MAINTAINER="Norikhsan90"
 		export FOX_VERSION=R12.1_0
-		export FOX_BUILD_TYPE="Beta"
+		export FOX_BUILD_TYPE="Unoficial_Beta"
 
 		# Device info
-		export OF_AB_DEVICE=1
-		export OF_VIRTUAL_AB_DEVICE=1
 		export TARGET_DEVICE_ALT="ruby, rubypro"
 		
 		# OTA / DM-Verity / Encryption
