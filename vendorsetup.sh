@@ -1,6 +1,6 @@
 #!/bin/bash 
   
-  export FOX_TARGET_DEVICES="ruby,rubypro" 
+  export FOX_TARGET_DEVICES="ruby" 
   export FOX_VARIANT="12.1" 
   export OF_MAINTAINER="Norikhsan90" 
   
