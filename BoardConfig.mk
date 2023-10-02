@@ -125,7 +125,7 @@ endif
 # TWRP Configuration 
 TW_FRAMERATE := 60 
 TW_THEME := portrait_hdpi 
-TW_DEVICE_VERSION := Ruby_Norikhsan90 
+#TW_DEVICE_VERSION := Ruby_Norikhsan90 
 TW_EXTRA_LANGUAGES := true 
 TW_SCREEN_BLANK_ON_BOOT := true 
 TW_USE_TOOLBOX := true 
