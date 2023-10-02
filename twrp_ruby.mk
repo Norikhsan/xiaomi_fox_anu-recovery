@@ -22,9 +22,4 @@ PRODUCT_MODEL := 22101316G
 PRODUCT_RELEASE_NAME := Redmi Note 12 Pro 5G
 PRODUCT_MANUFACTURER := xiaomi
 
-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-
-
-# HACK: Set vendor patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi 
