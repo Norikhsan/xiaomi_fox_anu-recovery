@@ -27,6 +27,8 @@
   
  # Platform 
  TARGET_BOARD_PLATFORM         := mt6877  
+ BOARD_HAS_MTK_HARDWARE := true 
+ BOARD_VENDOR := xiaomi
  
 # Kernel 
 BOARD_BOOTIMG_HEADER_VERSION := 2 
@@ -100,6 +102,8 @@ BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
  $(foreach p, $(BOARD_PARTITION_LIST), $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p)))) 
   
  BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs 
+ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
+ TARGET_COPY_OUT_VENDOR     := vendor 
  TARGET_COPY_OUT_SYSTEM_EXT := system_ext 
  TARGET_COPY_OUT_PRODUCT    := product 
  
@@ -108,11 +112,7 @@ BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
  TARGET_USERIMAGES_USE_F2FS    := true 
  TARGET_USES_MKE2FS            := true 
  BOARD_HAS_LARGE_FILESYSTEM    := true 
-  
- # Workaround for error copying vendor files to recovery ramdisk 
- BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
- TARGET_COPY_OUT_VENDOR := vendor 
-  
+ 
  # System Properties 
  TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop 
   
