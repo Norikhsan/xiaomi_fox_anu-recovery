@@ -25,7 +25,7 @@
        DEVICE_PATH: 
          description: 'DEVICE_PATH' 
          required: true 
-         default: 'device/xiaomi/tapas' 
+         default: 'device/xiaomi/ruby' 
        DEVICE_NAME: 
          description: 'DEVICE_NAME' 
          required: true 
@@ -37,7 +37,7 @@
        MAKEFILE_NAME: 
          description: 'MAKEFILE_NAME' 
          required: true 
-         default: 'twrp_tapas' 
+         default: 'twrp_ruby' 
        BUILD_TARGET: 
          description: 'BUILD_TARGET' 
          required: true 
