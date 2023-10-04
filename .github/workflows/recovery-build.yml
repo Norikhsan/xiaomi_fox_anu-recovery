@@ -13,7 +13,7 @@
        MANIFEST_BRANCH: 
          description: 'MANIFEST_BRANCH' 
          required: true 
-         default: '12.1' 
+         default: 'fox_12.1' 
        DEVICE_TREE_URL: 
          description: 'DEVICE_TREE_URL' 
          required: true 
