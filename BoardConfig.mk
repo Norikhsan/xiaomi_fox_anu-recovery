@@ -75,10 +75,7 @@ endif
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     system \
-    system \
     vendor \
-    vendor \
-    product \
     product \
     boot \
     vbmeta_vendor \
@@ -100,7 +97,7 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions 
-BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system vendor vendor product product
+BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor product 
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200
   
  # System Properties 
