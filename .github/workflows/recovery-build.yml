@@ -37,7 +37,7 @@
        MAKEFILE_NAME: 
          description: 'MAKEFILE_NAME' 
          required: true 
-         default: 'twrp_ruby' 
+         default: 'omni_ruby' 
        BUILD_TARGET: 
          description: 'BUILD_TARGET' 
          required: true 
