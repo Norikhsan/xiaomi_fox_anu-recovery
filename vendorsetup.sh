@@ -27,7 +27,6 @@
   export OF_AB_DEVICE_WITH_RECOVERY_PARTITION=1 
   
   # Flashlight path & Green LED 
-  export OF_FL_PATH1=/system/etc/flashlight 
   export OF_USE_GREEN_LED=0 
   
   # Removes the loop block errors after flashing ZIPs (Workaround) 
