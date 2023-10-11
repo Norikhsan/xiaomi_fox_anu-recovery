@@ -48,5 +48,5 @@
   export OF_CLOCK_POS=1 # Left & Right 
   
   # Debugging 
-  ## export FOX_RESET_SETTINGS=0 
+  export FOX_RESET_SETTINGS=0 
   ## export FOX_INSTALLER_DEBUG_MODE=1
