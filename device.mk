@@ -34,6 +34,3 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
      $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
      $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
      $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
-  
-TW_OVERRIDE_SYSTEM_PROPS := \
-"ro.build.product;ro.build.fingerprint;ro.build.version.incremental;ro.product.device=ro.product.system.device;ro.product.model=ro.product.system.model;ro.product.name=ro.product.system.name"
