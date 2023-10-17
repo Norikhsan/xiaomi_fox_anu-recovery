@@ -13,13 +13,13 @@
 
  # Kmsetkey
  ro.hardware.kmsetkey=beanpod
-
- # Platform 
- ro.mediatek.platform=MT6877
- ro.hardware=mt6877
   
  # Charger suspend  
  ro.charger.enable_suspend=1 
   
  # ADB 
- ro.adb.secure=0
+ ro.adb.secure=0 
+ ro.boot.dynamic_partitions=true 
+  
+ # USB 
+ ro.sys.usb.storage.type=mtp 
