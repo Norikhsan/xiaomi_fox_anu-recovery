@@ -4,6 +4,9 @@
  # SPDX-License-Identifier: Apache-2.0 
  # 
 
+ # Dynamic Partitions 
+ PRODUCT_USE_DYNAMIC_PARTITIONS := true 
+
  PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
