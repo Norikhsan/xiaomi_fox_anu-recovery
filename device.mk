@@ -12,7 +12,6 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
     vendor \ 
-    product \ 
     system \
     syatem_ext \ 
     vbmeta_system \
