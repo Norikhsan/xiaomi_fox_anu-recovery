@@ -9,4 +9,4 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/omni_ruby.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_ruby-eng
+    twrp_ruby-eng
