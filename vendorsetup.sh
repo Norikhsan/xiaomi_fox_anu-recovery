@@ -21,7 +21,16 @@
   export OF_NO_MIUI_PATCH_WARNING=1 
   export OF_NO_TREBLE_COMPATIBILITY_CHECK=1 
   export OF_DONT_PATCH_ENCRYPTED_DEVICE=1 
-  
+  export OF_OTA_RES_DECRYPT=1 
+  export OF_NO_RELOAD_AFTER_DECRYPTION=1 
+
+  # export FOX_TARGET_DEVICES="ruby,rubypro" 
+  export OF_FBE_METADATA_MOUNT_IGNORE=1  
+  export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1 
+  export OF_QUICK_BACKUP_LIST="/boot;/data;" 
+  export OF_NO_SPLASH_CHANGE=1
+  export OF_FIX_DECRYPTION_ON_DATA_MEDIA=1
+         
   # A/B partitions 
   export FOX_VIRTUAL_AB_DEVICE=1 
   export OF_AB_DEVICE_WITH_RECOVERY_PARTITION=1 
@@ -31,12 +40,18 @@
   
   # Removes the loop block errors after flashing ZIPs (Workaround) 
   export OF_LOOP_DEVICE_ERRORS_TO_LOG=1 
+  export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1 
   
   # Use LZ4 ramdisk compression as specified in BoardConfig.mk 
   export OF_USE_LZ4_COMPRESSION=true 
   
   # Security (Disables MTP&ADB during password prompt) 
   export OF_ADVANCED_SECURITY=1 
+
+  # system、vendor、boot
+  export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system" 
+  export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor" 
+  export FOX_RECOVERY_BOOT_PARTITION="/dev/block/by-name/boot"
   
   # Screen settings 
   export OF_SCREEN_H=2400 
