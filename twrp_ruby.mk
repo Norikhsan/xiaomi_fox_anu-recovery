@@ -19,7 +19,7 @@
   
  # Device identifier. This must come after all inclusions 
  PRODUCT_DEVICE := ruby
- PRODUCT_NAME := omni_ruby
+ PRODUCT_NAME := twrp_ruby
  PRODUCT_BRAND := Redmi
  PRODUCT_MODEL := 22101316G
  PRODUCT_RELEASE_NAME := Redmi Note 12 Pro 5G
