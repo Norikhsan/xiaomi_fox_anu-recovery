@@ -48,11 +48,6 @@
   # Security (Disables MTP&ADB during password prompt) 
   export OF_ADVANCED_SECURITY=1 
 
-  # system、vendor、boot
-  export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/mapper/system" 
-  export FOX_RECOVERY_VENDOR_PARTITION="/dev/block/mapper/vendor" 
-  export FOX_RECOVERY_BOOT_PARTITION="/dev/block/by-name/boot"
-  
   # Screen settings 
   export OF_SCREEN_H=2400 
   export OF_STATUS_H=95 
