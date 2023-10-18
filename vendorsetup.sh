@@ -24,6 +24,7 @@
   export OF_DONT_PATCH_ENCRYPTED_DEVICE=1 
   export OF_NO_RELOAD_AFTER_DECRYPTION=1 
 
+  export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
   export OF_FBE_METADATA_MOUNT_IGNORE=1 
   export OF_NO_SPLASH_CHANGE=1
   export OF_FIX_DECRYPTION_ON_DATA_MEDIA=1
@@ -53,7 +54,25 @@
   export OF_STATUS_INDENT_RIGHT=48 
   export OF_ALLOW_DISABLE_NAVBAR=0 
   export OF_CLOCK_POS=1 # Left & Right 
+
+# CCACHE
+	export USE_CCACHE=1
+	export CCACHE_EXEC=/usr/bin/ccache
+
+	CCACHE_DIR="/mnt/ccache"
+
+	if [ -d ${CCACHE_DIR} ];
+	then
+		export CCACHE_DIR=${CCACHE_DIR}
+	else
+		echo "CCACHE Directory/Partition is not mounted at \"${CCACHE_DIR}\""
+		echo "Please edit the CCACHE_DIR build variable or mount the directory."
+	fi
   
   # Debugging 
   export FOX_RESET_SETTINGS=0 
   ## export FOX_INSTALLER_DEBUG_MODE=1
+
+	# Other..
+	export TW_DEFAULT_LANGUAGE="en"
+	export LC_ALL="C"
