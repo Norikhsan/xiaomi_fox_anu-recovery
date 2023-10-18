@@ -20,15 +20,8 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
-AB_OTA_POSTINSTALL_CONFIG += \
-    RUN_POSTINSTALL_vendor=true \
-    POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
-    FILESYSTEM_TYPE_vendor=ext4 \
-    POSTINSTALL_OPTIONAL_vendor=true
-
 PRODUCT_PACKAGES += \
-    otapreopt_script \
-    checkpoint_gc
+    otapreopt_script 
 
 # Additional binaries & libraries needed for recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
@@ -45,7 +38,8 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
 PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
-    update_verifier
+    update_verifier \
+    checkpoint_gc
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
