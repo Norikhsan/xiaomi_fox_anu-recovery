@@ -22,12 +22,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
  PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
-  # Boot control HAL 
- PRODUCT_PACKAGES += \ 
-     android.hardware.boot@1.1-impl \ 
-     android.hardware.boot@1.1-impl.recovery \ 
-     android.hardware.boot@1.2-mtkimpl.recovery 
-    
 # Additional Libraries 
  TARGET_RECOVERY_DEVICE_MODULES += \ 
      libkeymaster4 \ 
