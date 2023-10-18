@@ -138,10 +138,8 @@ BOARD_USES_RECOVERY_AS_BOOT := true
  TW_THEME := portrait_hdpi 
  ifeq ($(TW_DEVICE_VERSION),) 
  TW_DEVICE_VERSION=ruby
- endif 
- RECOVERY_SDCARD_ON_DATA := true 
+ endif  
  TW_EXCLUDE_DEFAULT_USB_INIT := true 
- TW_EXTRA_LANGUAGES := true 
  TW_INCLUDE_NTFS_3G := true 
  TARGET_USES_MKE2FS := true 
  TW_USE_TOOLBOX := true 
