@@ -21,7 +21,6 @@
   export OF_NO_MIUI_PATCH_WARNING=1 
   export OF_NO_TREBLE_COMPATIBILITY_CHECK=1 
   export OF_DONT_PATCH_ENCRYPTED_DEVICE=1 
-  export OF_OTA_RES_DECRYPT=1 
   export OF_NO_RELOAD_AFTER_DECRYPTION=1 
 
   # export FOX_TARGET_DEVICES="ruby,rubypro" 
@@ -33,7 +32,7 @@
          
   # A/B partitions 
   export FOX_VIRTUAL_AB_DEVICE=1 
-  export OF_AB_DEVICE_WITH_RECOVERY_PARTITION=1 
+  export OF_AB_DEVICE_WITH_RECOVERY_PARTITION=0
   
   # Flashlight path & Green LED 
   export OF_USE_GREEN_LED=0 
