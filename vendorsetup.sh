@@ -25,7 +25,6 @@
   export OF_NO_RELOAD_AFTER_DECRYPTION=1 
 
   export OF_FBE_METADATA_MOUNT_IGNORE=1 
-  export OF_QUICK_BACKUP_LIST="/boot;/data;" 
   export OF_NO_SPLASH_CHANGE=1
   export OF_FIX_DECRYPTION_ON_DATA_MEDIA=1
          
