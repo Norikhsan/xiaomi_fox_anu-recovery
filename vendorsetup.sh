@@ -31,7 +31,6 @@
          
   # A/B partitions 
   export FOX_VIRTUAL_AB_DEVICE=1 
-  export OF_AB_DEVICE_WITH_RECOVERY_PARTITION=0
   
 	 # Disable Flashlight & Green LED
 	 export OF_FLASHLIGHT_ENABLE=0
