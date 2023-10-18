@@ -7,6 +7,12 @@
  # Dynamic Partitions 
  PRODUCT_USE_DYNAMIC_PARTITIONS := true 
 
+ # API 
+ PRODUCT_SHIPPING_API_LEVEL := 32 
+  
+ # VNDK 
+ PRODUCT_TARGET_VNDK_VERSION := 33
+  
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -32,13 +38,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
      $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \ 
      $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \ 
      $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
-
- # API 
- PRODUCT_SHIPPING_API_LEVEL := 32 
-  
- # VNDK 
- PRODUCT_TARGET_VNDK_VERSION := 33
-  
   
   
   
