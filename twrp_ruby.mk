@@ -14,9 +14,6 @@
  # Inherit from bomb device 
  $(call inherit-product, device/xiaomi/ruby/device.mk) 
   
- # Inherit some common TWRP stuff. 
- $(call inherit-product, vendor/twrp/config/common.mk) 
-  
  # Device identifier. This must come after all inclusions 
  PRODUCT_DEVICE := ruby
  PRODUCT_NAME := twrp_ruby
