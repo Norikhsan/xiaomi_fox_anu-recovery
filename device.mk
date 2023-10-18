@@ -12,10 +12,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
-  
- PRODUCT_PACKAGES += \ 
-     bootctrl.mt6877 \ 
-     bootctrl.mt6877.recovery 
 
  PRODUCT_PACKAGES += \
     otapreopt_script \
