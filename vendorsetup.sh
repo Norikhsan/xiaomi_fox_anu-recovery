@@ -1,6 +1,6 @@
 #!/bin/bash 
-  
-  export FOX_TARGET_DEVICES="ruby" 
+ 
+  export FOX_TARGET_DEVICES="ruby,rubypro" 
   export FOX_VARIANT="12.1" 
   export OF_MAINTAINER="Norikhsan90" 
   
@@ -18,12 +18,12 @@
   export FOX_DELETE_AROMAFM=1 
   
   # MIUI & Custom ROMs 
+  export FOX_VIRTUAL_AB_DEVICE=1
   export OF_NO_MIUI_PATCH_WARNING=1 
   export OF_NO_TREBLE_COMPATIBILITY_CHECK=1 
   export OF_DONT_PATCH_ENCRYPTED_DEVICE=1 
   export OF_NO_RELOAD_AFTER_DECRYPTION=1 
 
-  # export FOX_TARGET_DEVICES="ruby,rubypro" 
   export OF_FBE_METADATA_MOUNT_IGNORE=1 
   export OF_QUICK_BACKUP_LIST="/boot;/data;" 
   export OF_NO_SPLASH_CHANGE=1
@@ -33,8 +33,9 @@
   export FOX_VIRTUAL_AB_DEVICE=1 
   export OF_AB_DEVICE_WITH_RECOVERY_PARTITION=0
   
-  # Flashlight path & Green LED 
-  export OF_USE_GREEN_LED=0 
+	 # Disable Flashlight & Green LED
+	 export OF_FLASHLIGHT_ENABLE=0
+	 export OF_USE_GREEN_LED=0 
   
   # Removes the loop block errors after flashing ZIPs (Workaround) 
   export OF_LOOP_DEVICE_ERRORS_TO_LOG=1 
