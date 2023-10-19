@@ -97,13 +97,13 @@
 	# 使用指定的magisk版本号，由于magisk 23+使用了新的包装形式，文件路径改变了，橙狐无法获取正确的版本
 	# export MAGISK_VER=26.1
 	# 当修补recovery/boot镜像时，始终指示magiskboot v24+修补vbmeta标头（自动禁用avb验证？）
-	export FOX_PATCH_VBMETA_FLAG=1
+	#export FOX_PATCH_VBMETA_FLAG=1
 	# 标记该设备肯定是原生Android 11+虚拟A/B（“VAB”）设备
 	export FOX_VIRTUAL_AB_DEVICE=1
 	# 指定super分区的完整大小，修复部分设备刷入miui rom失败，VAB设备专用变量
 	#export OF_DYNAMIC_FULL_SIZE=9126805504
 	# 在修复或格式化f2fs数据分区之前自动卸载绑定/sdcard
-	export OF_UNBIND_SDCARD_F2FS=1
+	#export OF_UNBIND_SDCARD_F2FS=1
 	# 禁止把橙狐永久刷入vab设备，并且，禁止在安装 ROM 之后自动重刷橙狐
 	# export OF_NO_REFLASH_CURRENT_ORANGEFOX=1
 	# 标记该设备为recovery存在于vendor_boot分区中的设备（如k50之类的rec既不在boot分区里也没有独立rec分区的设备）
