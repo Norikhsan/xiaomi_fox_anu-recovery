@@ -126,8 +126,8 @@ TARGET_USERIMAGES_USE_F2FS := true
  TW_INCLUDE_LPDUMP := true 
 
  # System Properties 
- TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop 
  TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab 
+ TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop 
 
  # 12.1 manifest requirements
  TARGET_SUPPORTS_64_BIT_APPS := true
