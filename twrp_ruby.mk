@@ -23,4 +23,10 @@
   PRODUCT_BRAND := Redmi 
   PRODUCT_MODEL := 22101316G 
   PRODUCT_MANUFACTURER := xiaomi 
+ 
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi 
   
+ PRODUCT_BUILD_PROP_OVERRIDES += \ 
+     PRIVATE_BUILD_DESC="vnd_ruby-user 12 SP1A.210812.016 V13.0.4.0.SMOINXM release-keys" 
+  
+ BUILD_FINGERPRINT := Redmi/ruby_in/ruby:12/SP1A.210812.016/V13.0.4.0.SMOINXM:user/release-keys
