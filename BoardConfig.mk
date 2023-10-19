@@ -125,9 +125,11 @@ TARGET_USERIMAGES_USE_F2FS := true
  TW_INCLUDE_LPDUMP := true 
 
  # System Properties 
- TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop  
-  
+ TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop 
+ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab 
+   
  # TWRP Configuration 
+ TW_NO_HAPTIC := true
  TW_THEME := portrait_hdpi 
  ifeq ($(TW_DEVICE_VERSION),) 
  TW_DEVICE_VERSION=ruby
