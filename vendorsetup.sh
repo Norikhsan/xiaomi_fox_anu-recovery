@@ -6,7 +6,7 @@ export OF_MAINTAINER=norikhsan90
 
 # Build environment stuffs
 #export FOX_BUILD_DEVICE="Redmi Note 12 Pro 5G"
-export TARGET_DEVICE_ALT="ruby'
+export TARGET_DEVICE_ALT="ruby"
 export FOX_TARGET_DEVICES="ruby,rubypro"
 export ALLOW_MISSING_DEPENDENCIES=true
 #export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=0
