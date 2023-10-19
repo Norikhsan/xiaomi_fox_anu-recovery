@@ -141,7 +141,6 @@ TARGET_USERIMAGES_USE_F2FS := true
  # TWRP Configuration 
  TW_NO_HAPTIC := true
  TW_THEME := portrait_hdpi 
- TW_HAS_MTP := true
  TW_EXTRA_LANGUAGES := true
  TW_EXCLUDE_DEFAULT_USB_INIT := true 
  TW_INCLUDE_NTFS_3G := true 
