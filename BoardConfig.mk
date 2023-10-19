@@ -37,7 +37,6 @@ TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55 
 
 # Bootloader 
-TARGET_BOOTLOADER_BOARD_NAME := ruby 
 TARGET_NO_BOOTLOADER := true 
 
 # Kernel
@@ -131,9 +130,6 @@ TARGET_USERIMAGES_USE_F2FS := true
  # TWRP Configuration 
  TW_NO_HAPTIC := true
  TW_THEME := portrait_hdpi 
- ifeq ($(TW_DEVICE_VERSION),) 
- TW_DEVICE_VERSION=ruby
- endif  
  TW_HAS_MTP := true
  TW_EXTRA_LANGUAGES := true
  TW_EXCLUDE_DEFAULT_USB_INIT := true 
