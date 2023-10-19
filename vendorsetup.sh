@@ -3,14 +3,8 @@ export TARGET_ARCH="arm64-v8a"
 # Some about us
 export FOX_VERSION="R12.1"
 export OF_MAINTAINER=norikhsan90
-
-# Build environment stuffs
-#export FOX_BUILD_DEVICE="Redmi Note 12 Pro 5G"
 export TARGET_DEVICE_ALT="ruby"
 export FOX_TARGET_DEVICES="ruby,rubypro"
-#export ALLOW_MISSING_DEPENDENCIES=true
-#export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=0
-
 
 # Use magisk boot for patching
 export OF_USE_MAGISKBOOT=1
@@ -20,7 +14,6 @@ export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 # We have a/b partitions
 export FOX_AB_DEVICE=1
 export FOX_VIRTUAL_AB_DEVICE=1
-export OF_AB_DEVICE_WITH_RECOVERY_PARTITION=0
 
 # Disable Flashlight & Green LED
 export OF_FLASHLIGHT_ENABLE=0
@@ -38,14 +31,14 @@ export OF_STATUS_H=120
 export OF_KEEP_FORCED_ENCRYPTION=1
 export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
 export OF_FBE_METADATA_MOUNT_IGNORE=1
-export OF_PATCH_AVB20=1
+export OF_PATCH_AVB20=0
 
 # Run a process after formatting data to work-around MTP issues
-export OF_RUN_POST_FORMAT_PROCESS=1
+#export OF_RUN_POST_FORMAT_PROCESS=1
 
 # Removes the loop block errors after flashing ZIPs (Workaround) 
 export OF_LOOP_DEVICE_ERRORS_TO_LOG=1 
-export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1 
+#export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1 
 
 # MIUI & Custom ROMs 
 export FOX_VIRTUAL_AB_DEVICE=1
@@ -63,7 +56,7 @@ export OF_FIX_DECRYPTION_ON_DATA_MEDIA=1
 #export FOX_BUGGED_AOSP_ARB_WORKAROUND="1601559499"
 
 # Quick Backup list
-export OF_QUICK_BACKUP_LIST="/boot;/data;/super;"
+#export OF_QUICK_BACKUP_LIST="/boot;/data;/super;"
   
 # Security (Disables MTP&ADB during password prompt) 
 export OF_ADVANCED_SECURITY=1 
