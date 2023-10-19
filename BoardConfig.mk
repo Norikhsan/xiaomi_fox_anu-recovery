@@ -100,7 +100,7 @@ TARGET_USERIMAGES_USE_F2FS := true
  
 # Display 
  TARGET_SCREEN_DENSITY := 440 
- TW_FRAMERATE := 90 
+ TW_FRAMERATE := 120 
   
  # Use mke2fs to create ext4 images
  TARGET_USES_MKE2FS := true
