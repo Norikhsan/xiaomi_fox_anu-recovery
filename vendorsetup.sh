@@ -5,11 +5,11 @@ export FOX_VERSION="R12.1"
 export OF_MAINTAINER=norikhsan90
 
 # Build environment stuffs
-export FOX_BUILD_DEVICE="Ruby"
+export FOX_BUILD_DEVICE="Redmi Note 12 Pro 5G"
 export ALLOW_MISSING_DEPENDENCIES=true
 #export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=0
-#export FOX_TARGET_DEVICES="ruby,rubypro"
-export BUILD_USERNAME="Redmi Note 12 Pro 5G"
+export FOX_TARGET_DEVICES="ruby,rubypro"
+export BUILD_USERNAME="ruby"
 
 # Use magisk boot for patching
 export OF_USE_MAGISKBOOT=1
