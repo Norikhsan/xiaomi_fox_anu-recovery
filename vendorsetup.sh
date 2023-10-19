@@ -74,7 +74,7 @@
 	# 添加黑色状态栏（隐藏刘海）选项
 	export OF_HIDE_NOTCH=1
 	# 由于有刘海遮挡，设置时钟位置为只能显示在左侧或右侧
-        export OF_CLOCK_POS=1
+  export OF_CLOCK_POS=1
 	# 禁止禁用导航栏
 	export OF_ALLOW_DISABLE_NAVBAR=0
 
@@ -82,16 +82,16 @@
 	# 设置一个很老的build时间，用于解决某些ROM例如MIUI刷机脚本里的防回滚保护检测
 	#export FOX_BUGGED_AOSP_ARB_WORKAROUND="1546300800"; # Tuesday, January 1, 2019 12:00:00 AM GMT+00:00
 	# 使小米平板5 Pro和小米平板5 Pro 5G都能刷入橙狐zip卡刷包
-	export TARGET_DEVICE_ALT="ruby"
+	# export TARGET_DEVICE_ALT="ruby"
 	# 使橙狐可以刷入具有机型检测限制为小米平板5 Pro或者小米平板5 Pro 5G的zip卡刷包，与TARGET_OTA_ASSERT_DEVICE冲突
-	export FOX_TARGET_DEVICES="ruby,rubypro"
+	export FOX_TARGET_DEVICES="ruby"
 
 	# 为“快速备份”指定默认选择的分区
-	export OF_QUICK_BACKUP_LIST="/boot;/data;"
+  export OF_QUICK_BACKUP_LIST="/boot;/data;"
 	# 将装载逻辑分区时的一些错误仅显示在日志里
-	export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1
+  export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1
 	# 禁用橙狐内置的magisk菜单
-        export FOX_DELETE_MAGISK_ADDON=1
+  export FOX_DELETE_MAGISK_ADDON=1
 	# 使用指定的magisk
 	# export FOX_USE_SPECIFIC_MAGISK_ZIP="$HOME/Magisk.zip"
 	# 使用指定的magisk版本号，由于magisk 23+使用了新的包装形式，文件路径改变了，橙狐无法获取正确的版本
