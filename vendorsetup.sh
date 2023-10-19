@@ -8,7 +8,7 @@ export OF_MAINTAINER=norikhsan90
 export FOX_BUILD_DEVICE="Ruby"
 export ALLOW_MISSING_DEPENDENCIES=true
 #export FOX_USE_TWRP_RECOVERY_IMAGE_BUILDER=0
-export FOX_TARGET_DEVICES="ruby,rubypro"
+#export FOX_TARGET_DEVICES="ruby,rubypro"
 export BUILD_USERNAME="Redmi Note 12 Pro 5G"
 
 # Use magisk boot for patching
