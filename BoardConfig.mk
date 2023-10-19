@@ -85,9 +85,6 @@ TARGET_BOARD_PLATFORM := mt6877
 BOARD_AVB_ENABLE := true 
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 
-# Assert 
-TARGET_OTA_ASSERT_DEVICE := ruby,rubypro
-
  # Power 
  ENABLE_CPUSETS := true 
  ENABLE_SCHEDBOOST := true
