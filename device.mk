@@ -38,7 +38,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
-Fastbootd
 PRODUCT_PACKAGES += \
 	fastbootd \
 	android.hardware.fastboot@1.0-impl-mock.so
