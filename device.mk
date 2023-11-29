@@ -6,14 +6,24 @@
 
 LOCAL_PATH := device/xiaomi/ruby
 
-# Dynamic Partitions
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
+# Include GSI keys
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
-# API
-PRODUCT_TARGET_VNDK_VERSION := 33
-PRODUCT_SHIPPING_API_LEVEL := 32
+# Virtual AB
+ENABLE_VIRTUAL_AB := true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
-# A/B
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-impl \
+    android.hardware.boot@1.2-impl.recovery \
+    android.hardware.boot@1.2-service
+
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_engine_sideload \
+    update_verifier
+
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
@@ -21,44 +31,35 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_system=true
 
 PRODUCT_PACKAGES += \
-    otapreopt_script 
+    otapreopt_script \
+    cppreopts.sh
 
-# Boot Control HAL
+# fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl.recovery \
-    android.hardware.boot@1.0-impl \
+    android.hardware.fastboot@1.0-impl-mock \
+    fastbootd
 
- # Update engine
+# Health
 PRODUCT_PACKAGES += \
-    update_engine \
-    update_engine_sideload \
-    update_verifier \
-    checkpoint_gc
+    android.hardware.health@2.1-impl \
+    android.hardware.health@2.1-service
 
-PRODUCT_PACKAGES_DEBUG += \
-    update_engine_client
+# Dynamic Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-PRODUCT_PACKAGES += \
-	fastbootd \
-	android.hardware.fastboot@1.0-impl-mock.so
+# VNDK
+PRODUCT_TARGET_VNDK_VERSION := 33
 
-# Gatekeeper
-PRODUCT_PACKAGES += \
-	android.hardware.gatekeeper@1.0-impl.so
+# API
+PRODUCT_SHIPPING_API_LEVEL := 31
 
-# Health HAL
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl-2.1.so \
-    android.hardware.health@2.0-impl-default.so
-
-# Additional binaries & libraries needed for recovery
+# Additional Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
-    libkeymaster41 \
     libkeymaster4 \
+    libkeymaster41 \
     libpuresoftkeymasterdevice
 
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster4.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libkeymaster41.so \
     $(TARGET_OUT_SHARED_LIBRARIES)/libpuresoftkeymasterdevice.so
-
