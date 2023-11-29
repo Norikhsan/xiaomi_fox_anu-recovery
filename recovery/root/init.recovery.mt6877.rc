@@ -35,6 +35,19 @@ on post-fs
 on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
     install_keyring
 
+service boot-hal-1-2 /system/bin/android.hardware.boot@1.2-service
+    interface android.hardware.boot@1.0::IBootControl default
+    interface android.hardware.boot@1.1::IBootControl default
+    interface android.hardware.boot@1.2::IBootControl default
+    user root
+    group root
+    setenv LD_LIBRARY_PATH /vendor/lib64:/vendor/lib:/system/lib64:/system/lib:/sbin
+    disabled
+    seclabel u:r:recovery:s0
+
+on property:ro.crypto.state=encrypted && property:ro.crypto.type=file
+    install_keyring
+
 service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     class main
     user root
@@ -43,17 +56,10 @@ service mtk.plpath.utils.link /system/bin/mtk_plpath_utils
     oneshot
     seclabel u:r:recovery:s0
 
-service keystore_auth /system/bin/keystore_auth
-    oneshot
+service vibratorfeature-hal-service /vendor/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
+    class hal
     user system
-    group root
-    disabled
-    seclabel u:r:recovery:s0
-
-service keystore /system/bin/keystore /tmp/misc/keystore
-    user root
-    group root drmrpc readproc log
-    disabled
+    group system input
     seclabel u:r:recovery:s0
 
 service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
@@ -63,16 +69,17 @@ service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
     disabled
     seclabel u:r:recovery:s0
 
-service keymaster-4-1-beanpod /system/bin/android.hardware.keymaster@4.1-service.beanpod
+service keymaster-4-1 /system/bin/android.hardware.keymaster@4.1-service.beanpod
     interface android.hardware.keymaster@4.0::IKeymasterDevice default
     interface android.hardware.keymaster@4.1::IKeymasterDevice default
     user root
     group root drmrpc
-    oneshot    
+    oneshot
     disabled
     seclabel u:r:recovery:s0
 
 on property:vendor.sys.listener.registered=true
+    start teei_daemon
     start gatekeeper-1-0
     start keymaster-4-1
    
@@ -80,17 +87,18 @@ on property:ro.crypto.state=unsupported
     stop teei_daemon
     stop keymaster-4-1
     stop gatekeeper-1-0
-    
+
 on property:ro.crypto.state=unencrypted
-    stop teei_daemon    
+    stop teei_daemon
     stop keymaster-4-1
     stop gatekeeper-1-0
-        
+
 on property:twrp.all.users.decrypted=true
     stop teei_daemon
     stop keymaster-4-1
     stop gatekeeper-1-0
-   
+    
 on boot
     start boot-hal-1-2
     start health-hal-2-1
+    start vibratorfeature-hal-service
