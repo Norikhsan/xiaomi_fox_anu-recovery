@@ -1,69 +1,123 @@
-export TARGET_ARCH="arm64"
+#!/usr/bin/env bash
+#
+#	This file is part of the OrangeFox Recovery Project
+# 	Copyright (C) 2020-2021 The OrangeFox Recovery Project
+#
+#	OrangeFox is free software: you can redistribute it and/or modify
+#	it under the terms of the GNU General Public License as published by
+#	the Free Software Foundation, either version 3 of the License, or
+#	any later version.
+#
+#	OrangeFox is distributed in the hope that it will be useful,
+#	but WITHOUT ANY WARRANTY; without even the implied warranty of
+#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#	GNU General Public License for more details.
+#
+# 	This software is released under GPL version 3 or any later version.
+#	See <http://www.gnu.org/licenses/>.
+#
+# 	Please maintain this if you use this script or any part of it
+#
 
-# Some about us
-export FOX_VERSION="R12.1"
-export OF_MAINTAINER=norikhsan90
-export FOX_TARGET_DEVICES="ruby,rubypro"
+FDEVICE="ruby"
+#set -o xtrace
 
-# Use magisk boot for patching
-export OF_USE_MAGISKBOOT=1
-export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
-export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
+fox_get_target_device() {
+	local chkdev=$(echo "$BASH_SOURCE" | grep -w $FDEVICE)
+	if [ -n "$chkdev" ]; then
+		FOX_BUILD_DEVICE="$FDEVICE"
+	else
+		chkdev=$(set | grep BASH_ARGV | grep -w $FDEVICE)
+		[ -n "$chkdev" ] && FOX_BUILD_DEVICE="$FDEVICE"
+	fi
+}
 
-# We have a/b partitions
-export FOX_AB_DEVICE=1
-export FOX_VIRTUAL_AB_DEVICE=1
+if [ -z "$1" ] && [ -z "$FOX_BUILD_DEVICE" ]; then
+	fox_get_target_device
+fi
 
-# Disable Flashlight & Green LED
-export OF_FLASHLIGHT_ENABLE=0
-export OF_USE_GREEN_LED=0 
+# Dirty Fix: Only declare orangefox vars when needed
+if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
+	echo -e "\x1b[96m[INFO]: Setting up OrangeFox build vars for viva...\x1b[m"
+	if [ "$1" = "$FDEVICE" ] || [  "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
+		# Version / Maintainer infos
+		export OF_MAINTAINER="Tapin Recovery Instraller"
+		export FOX_VERSION=R12.1_0
+		export FOX_BUILD_TYPE="Stable"
+		export TARGET_DEVICE_ALT="ruby"	
 
-# Screen specifications
-export OF_STATUS_INDENT_LEFT=48
-export OF_STATUS_INDENT_RIGHT=48
-export OF_ALLOW_DISABLE_NAVBAR=0
-export OF_CLOCK_POS=0
-export OF_SCREEN_H=2400
-export OF_STATUS_H=120
-
-# Device stuff
-export OF_DONT_PATCH_ENCRYPTED_DEVICE=1 
-export OF_NO_RELOAD_AFTER_DECRYPTION=1 
-export OF_KEEP_FORCED_ENCRYPTION=1
-export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
-export OF_FBE_METADATA_MOUNT_IGNORE=1
-export OF_PATCH_AVB20=0
-
-# Run a process after formatting data to work-around MTP issues
-export OF_RUN_POST_FORMAT_PROCESS=1
-
-# Removes the loop block errors after flashing ZIPs (Workaround) 
-export OF_LOOP_DEVICE_ERRORS_TO_LOG=1 
-#export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1 
-
-# MIUI & Custom ROMs 
-export OF_KEEP_DM_VERITY=1
-export OF_SUPPORT_ALL_PAYLOAD_OTA_UPDATES=1
-export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=0
-export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
-export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
-export OF_NO_MIUI_PATCH_WARNING=1 
-
-export OF_USE_MAGISKBOOT_FOR_ALL_PATCHES=1
-export OF_FBE_METADATA_MOUNT_IGNORE=1 
-export OF_NO_SPLASH_CHANGE=1 
+		# OTA / DM-Verity / Encryption
+		export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
+		export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1	
   
-# Security (Disables MTP&ADB during password prompt) 
-export OF_ADVANCED_SECURITY=1 
+		export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
+		export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
+		export OF_KEEP_DM_VERITY_FORCED_ENCRYPTION=1
+		export OF_SKIP_DECRYPTED_ADOPTED_STORAGE=1
 
-# Dont install AROMAFM
-export FOX_DELETE_AROMAFM=1
+ 		# Run a process after formatting data to work-around MTP issues
+		export OF_RUN_POST_FORMAT_PROCESS=1
 
-# Add some extras
-export FOX_USE_ZIP_BINARY=1
-export FOX_REPLACE_BUSYBOX_PS=1
-export FOX_USE_BASH_SHELL=1
-export OF_USE_LZMA_COMPRESSION=1
-export FOX_USE_NANO_EDITOR=1
-export OF_DONT_KEEP_LOG_HISTORY=1
-export FOX_INSTALLER_DISABLE_AUTOREBOOT=1
+		# Display / Leds
+		export OF_SCREEN_H="2400"
+		export OF_STATUS_H="100"
+		export OF_STATUS_INDENT_LEFT=48
+		export OF_STATUS_INDENT_RIGHT=48
+		export OF_HIDE_NOTCH=1
+		export OF_CLOCK_POS=1 # left and right clock positions available
+		export OF_USE_GREEN_LED=0
+
+		# Security (Disables MTP & ADB during password prompt)
+		export OF_ADVANCED_SECURITY=1
+
+		# Removes the loop block errors after flashing ZIPs (Workaround) 
+		export OF_LOOP_DEVICE_ERRORS_TO_LOG=1 
+
+		# Other OrangeFox configs
+		export OF_ENABLE_LPTOOLS=1
+		export OF_ALLOW_DISABLE_NAVBAR=0
+		export FOX_DELETE_AROMAFM=1
+		export FOX_USE_SPECIFIC_MAGISK_ZIP="$(gettop)/device/xiaomi/viva/Magisk/Magisk.zip"
+
+        export BUNDLED_MAGISK_VER="25.2"
+        export BUNDLED_MAGISK_SUM="0bdc32918b6ea502dca769b1c7089200da51ea1def170824c2812925b426d509" # Sha256 sum of the prebuilt magisk
+
+            if [ -f "${FOX_USE_SPECIFIC_MAGISK_ZIP}" -a "$(sha256sum "${FOX_USE_SPECIFIC_MAGISK_ZIP}" 2>/dev/null | awk '{print $1}')" != "${BUNDLED_MAGISK_SUM}" ]
+            then
+                echo -e "\e[96m[INFO]: Removing invalid magisk zip\e[m"
+                rm -v "${FOX_USE_SPECIFIC_MAGISK_ZIP}"
+            fi
+
+        if [[ ! -f "${FOX_USE_SPECIFIC_MAGISK_ZIP}" ]]
+        then
+            # Download prebuilt magisk for OrangeFox builds
+            echo -e "\e[96m[INFO]: Downloading Magisk v${BUNDLED_MAGISK_VER}\e[m"
+            
+            if [[ "$(command -v "curl")" ]]
+            then
+                if [[ ! -d "$(dirname "${FOX_USE_SPECIFIC_MAGISK_ZIP}")" ]]
+                then
+                    mkdir -p "$(dirname "${FOX_USE_SPECIFIC_MAGISK_ZIP}")"
+                fi
+
+                # Download magisk and verify it
+                curl -L --progress-bar "https://github.com/topjohnwu/Magisk/releases/download/v${BUNDLED_MAGISK_VER}/Magisk-v${BUNDLED_MAGISK_VER}.apk" -o "${FOX_USE_SPECIFIC_MAGISK_ZIP}"
+                DOWNLOADED_SUM="$(sha256sum "${FOX_USE_SPECIFIC_MAGISK_ZIP}" | awk '{print $1}')"
+                
+                if [[ "${DOWNLOADED_SUM}" != "${BUNDLED_MAGISK_SUM}" ]]
+                then
+                    echo -e "\e[91m[ERROR]: Donwloaded Magisk ZIP seems *corrupted*, removing it to protect user's safety\e[m"
+                    rm "${FOX_USE_SPECIFIC_MAGISK_ZIP}"
+                    unset "FOX_USE_SPECIFIC_MAGISK_ZIP"
+                else
+                    echo -e "\e[96m[INFO]: Downloaded Magisk v${BUNDLED_MAGISK_VER}\e[m"
+                fi
+            else
+                # Curl is supposed to be installed according to "Establishing a build environnement" section in AOSP docs
+                # If it isn't, warn the builder about it and fallback to default Magisk ZIP
+                echo -e "\e[91m[ERROR]: Curl not found!\e[m"
+                unset "FOX_USE_SPECIFIC_MAGISK_ZIP"
+            fi
+        fi
+    fi
+fi
