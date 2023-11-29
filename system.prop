@@ -1,5 +1,5 @@
-ro.mediatek.platform=MT6781
-ro.hardware=mt6781
+ro.mediatek.platform=MT6877
+ro.hardware=mt6877
 ro.mtk_tee_gp_support=1
 ro.mtk_microtrust_tee_support=1
 fbe.metadata.wrappedkey=true
