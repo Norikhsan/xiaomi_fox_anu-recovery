@@ -13,7 +13,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from viva device
-$(call inherit-product, device/xiaomi/viva/device.mk)
+$(call inherit-product, device/xiaomi/ruby/device.mk)
 
 PRODUCT_DEVICE := ruby
 PRODUCT_NAME := twrp_ruby
