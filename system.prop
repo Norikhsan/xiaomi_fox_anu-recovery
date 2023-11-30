@@ -16,9 +16,3 @@
   
  # Charger suspend  
  ro.charger.enable_suspend=1 
-  
- # ADB 
- ro.adb.secure=0 
-  
- # USB 
- ro.sys.usb.storage.type=mtp 
