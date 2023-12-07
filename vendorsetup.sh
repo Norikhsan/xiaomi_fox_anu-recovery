@@ -49,12 +49,14 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 		# OTA / DM-Verity / Encryption
 		export OF_NO_TREBLE_COMPATIBILITY_CHECK=1
 		export OF_DISABLE_MIUI_OTA_BY_DEFAULT=1
-		export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1	
+		export OF_FIX_OTA_UPDATE_MANUAL_FLASH_ERROR=1
+		export OF_SUPPORT_ALL_BLOCK_OTA_UPDATES=1
   
 		export OF_DONT_PATCH_ON_FRESH_INSTALLATION=1
 		export OF_DONT_PATCH_ENCRYPTED_DEVICE=1
 		export OF_KEEP_DM_VERITY_FORCED_ENCRYPTION=1
 		export OF_SKIP_DECRYPTED_ADOPTED_STORAGE=1
+  		export OF_NO_SPLASH_CHANGE=1
 
 		# Display / Leds
 		export OF_SCREEN_H="2400"
@@ -69,7 +71,7 @@ if [ -f "$(gettop)/bootable/recovery/orangefox.cpp" ]; then
 		export OF_ADVANCED_SECURITY=1
 
 		# Removes the loop block errors after flashing ZIPs (Workaround) 
-		export OF_LOOP_DEVICE_ERRORS_TO_LOG=1 
+		export OF_IGNORE_LOGICAL_MOUNT_ERRORS=1
 
 		# Other OrangeFox configs
 		export OF_ENABLE_LPTOOLS=1
