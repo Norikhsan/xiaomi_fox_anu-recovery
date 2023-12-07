@@ -109,7 +109,7 @@ VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 99.87.36
+PLATFORM_VERSION := 13
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 
 # Properties
@@ -151,7 +151,6 @@ TW_NO_SCREEN_BLANK := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_NO_HAPTIC := true
-RECOVERY_SDCARD_ON_DATA := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
 
 # This device does not support fastboot boot, do *NOT* remove!
